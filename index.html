@@ -315,15 +315,19 @@
 
             console.log('Data submitted:', submitData);
 
-            
-            // Example: 
-            // await fetch('YOUR_GOOGLE_SHEETS_ENDPOINT', {
-            //     method: 'POST',
-            //     headers: { 'Content-Type': 'application/json' },
-            //     body: JSON.stringify(submitData)
-            // });
+// Kirim ke Google Sheets
+try {
+    await fetch('https://script.google.com/macros/s/AKfycbwuT0O81P9vTPtEKRh3qKFMLcTYxJzDhk0JSbqfrbpMk5djjUAOkOakN4YN2-AINx8G/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(submitData)
+    });
+} catch (error) {
+    console.error('Error:', error);
+}
 
-            // Simulate API call
+// Show success
             
 
             // Show success
@@ -366,3 +370,4 @@
 </body>
 
 </html>
+
